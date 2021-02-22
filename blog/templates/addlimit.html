@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<form action="" method="POST" enctype="multipart/form-data" class="center">
+<h2 class="w3-center">Add Tools</h2>
+        {{form.hidden_tag()}}               
+
+        <div class="form-group">
+                  {{form.student.label(class="form-control-label")}}
+                  {% if form.student.errors %}
+                  {{form.student(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.student.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.student(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+
+        <div class="form-group">
+                  {{form.employee.label(class="form-control-label")}}
+                  {% if form.employee.errors %}
+                  {{form.employee(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.employee.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.employee(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+
+        <div class="form-group">
+                  {{form.clas.label(class="form-control-label")}}
+                  {% if form.clas.errors %}
+                  {{form.clas(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.clas.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.clas(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+             
+           
+                
+      
+                  <div class="form-group">
+                      {{form.submit(class="w3-button w3-blue w3-border w3-round-xxlarge ")}}
+                  </div>
+     </form>
+
+
+         <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                   
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Class Table</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Student Limit</th>
+                                            <th>Employee Limit</th>
+                                            <th>Class Limit</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        {% for limit in lmt %}
+                                        <tr>
+                                            <td>{{limit.student}}</td>
+                                            <td>{{limit.employee}}</td>
+                                            <td>{{limit.clas}}</td>
+                                            <td><a href="{{url_for('editlimit',id=limit.id)}}"><i class="fas fa-fw fa-edit"></i></td>
+                                            <td><a href="{{url_for('deletelimit',id=limit.id)}}"><i class="fas fa-fw fa-trash-alt"></i></td>  
+                                        </tr>
+                                        {% endfor %}
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                  <div class="container-fluid">
+
+                
+
+            </div>
+       <script src="../static/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="../static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+<script src="../static/js/demo/datatables-demo.js"></script>
+  
+{% endblock %}

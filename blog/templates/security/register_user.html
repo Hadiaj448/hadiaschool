@@ -1,0 +1,59 @@
+
+
+{% from "security/_macros.html" import render_field_with_errors, render_field %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../static/style.css" />
+        <link rel="stylesheet" href="../static/w3.css" />
+
+    <title>Sign in & Sign up Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+
+
+<form action="{{ url_for_security('register') }}" method="POST" name="register_user_form" class="sign-in-form">
+  {{ register_user_form.hidden_tag() }}
+   <h2 class="title">Sign up</h2>
+            
+                {{ render_field_with_errors(register_user_form.username,class="w3-input w3-border w3-round-xxlarge")}}
+           
+                {{ render_field_with_errors(register_user_form.email,class="w3-input w3-border w3-round-xxlarge") }}
+           
+                {{ render_field_with_errors(register_user_form.password,class="w3-input w3-border w3-round-xxlarge") }}
+          
+
+  {% if register_user_form.password_confirm %}
+ 
+    {{ render_field_with_errors(register_user_form.password_confirm,class="w3-input w3-border w3-round-xxlarge") }}
+         
+  {% endif %}
+  {{ render_field(register_user_form.submit,class="btn") }}
+</form>
+</div>
+</div>
+</div>
+
+
+ <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+             <a class="navbar-brand w3-left" href="/" >
+    <img src="../static/img/logo.png" alt="logo" style="width:40px;" >
+     </a>
+            <h3>Join US ?</h3>
+         
+          <a href="/login">Sign in</a>
+          </div>
+          <img src="../static/img/register.svg" class="image" alt="" />
+        </div>
+    </div>
+
+
+  </body>
+</html>

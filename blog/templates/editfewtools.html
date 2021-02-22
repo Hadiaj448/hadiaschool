@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<form action="" method="POST" enctype="multipart/form-data" class="center">
+<h2 class="w3-center">Add Tools</h2>
+        {{form.hidden_tag()}}               
+        <label for="tool">Add Tool Name</label>
+             <select class="w3-select w3-borderw3-border w3-round-xxlarge" name="tool" id="tool">
+                 <option value="" disabled selected>Choose your option</option>
+                 {% for tool in tools %}
+                 <option value="{{tool.id}}" required>{{tool.name}}</option>
+                 {% endfor %}    
+             </select>
+
+        <div class="form-group">
+                  {{form.number.label(class="form-control-label")}}
+                  {% if form.number.errors %}
+                  {{form.number(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.number.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.number(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+              <div class="form-group">
+                  {{form.money.label(class="form-control-label")}}
+                  {% if form.money.errors %}
+                  {{form.money(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.money.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.money(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div>
+              
+           
+                
+      
+                  <div class="form-group">
+                      {{form.submit(class="w3-button w3-blue w3-border w3-round-xxlarge ")}}
+                  </div>
+     </form>
+  
+{% endblock %}

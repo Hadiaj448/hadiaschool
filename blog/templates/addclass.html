@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="w3-content">
+<div class="w3-content">
+<form action="" method="POST" class="center" >
+
+<h2 class="w3-center">Add Class</h2>
+      {{form.hidden_tag()}}
+      
+            <div class="form-group">
+                {{form.name.label(class="form-control-label")}}
+                {% if form.name.errors %}
+                {{form.name(class="form-control form-control-lg is-invalid w3-input w3-border w3-round-xxlarge")}}
+                <div class="invalid-feedback">
+                    {% for error in form.name.errors %}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{form.name(class="form-control form-control-lg w3-input w3-border w3-round-xxlarge ")}}
+                {% endif %}
+            </div> 
+               
+             
+                <div class="form-group">
+                    {{form.submit(class="w3-bar-item w3-round-xxlarge w3-blue w3-button ")}}
+                </div>
+             <br>
+   </form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

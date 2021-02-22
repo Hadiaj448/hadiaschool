@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<form action="" method="POST" enctype="multipart/form-data" class="center">
+<h2 class="w3-center">Add Employee</h2>
+        {{form.hidden_tag()}}               
+        <div class="form-group">
+                  {{form.name.label(class="form-control-label")}}
+                  {% if form.name.errors %}
+                  {{form.name(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.name.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.name(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+              <div class="form-group">
+                  {{form.fathername.label(class="form-control-label")}}
+                  {% if form.fathername.errors %}
+                  {{form.fathername(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.fathername.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.fathername(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div>
+
+          <label for="position">Add Position</label>
+             <select class="w3-select w3-borderw3-border w3-round-xxlarge" name="position" id="position">
+                 <option value="" disabled selected>Choose your option</option>
+                 {% for position in positions %}
+                 <option value="{{position.id}}" required>{{position.name}}</option>
+                 {% endfor %}    
+             </select>
+              <br>
+
+                <div class="form-group">
+                  {{form.nic.label(class="form-control-label")}}
+                  {% if form.nic.errors %}
+                  {{form.nic(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.nic.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.nic(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+                <div class="form-group">
+                  {{form.age.label(class="form-control-label")}}
+                  {% if form.age.errors %}
+                  {{form.age(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.age.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.age(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+              <div class="form-group">
+                  {{form.salary.label(class="form-control-label")}}
+                  {% if form.salary.errors %}
+                  {{form.salary(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.salary.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.salary(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+         
+          
+      
+                  <div class="form-group">
+                      {{form.submit(class="w3-button w3-blue w3-border w3-round-xxlarge ")}}
+                  </div>
+     </form>
+  
+{% endblock %}

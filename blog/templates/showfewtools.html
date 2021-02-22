@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+                <div class="container-fluid">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Show Tools</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>How Many</th>
+                                            <th>How Much</th>
+                                            <th>Add Time</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                            
+
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        {% for tool in tools %}
+                                        <tr>
+                                            <td>{{tool.tool.name}}</td>
+                                            <td>{{tool.number}}</td>
+                                            <td>{{tool.money}}</td>
+                                            <td>{{tool.date.strftime('%Y-%m-%d')}}</td>
+                                            <td><a href="{{url_for('editfewtools',id=tool.id)}}"><i class="fas fa-fw fa-edit"></i></td>
+                                            <td><a href="{{url_for('deletefewtools',id=tool.id)}}"><i class="fas fa-fw fa-trash-alt"></i></td>
+                                        </tr>
+                                        {% endfor %}
+                                        
+                                    </tbody>
+                                     <tfooot>
+                                       <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th>{{x}}</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                        </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+       <script src="../static/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="../static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+<script src="../static/js/demo/datatables-demo.js"></script>
+  {% endblock %}

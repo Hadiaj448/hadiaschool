@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+   
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                   
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Show Subjects</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Class Number</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        {% for subject in subjects %}
+                                        <tr>
+                                            <td>{{subject.name}}</td>
+                                            <td>{{subject.number}}</td>
+                                            <td><a href="{{url_for('editsubject',id=subject.id)}}"><i class="fas fa-fw fa-edit"></i></td>
+                                            <td><a href="{{url_for('deletesubject',id=subject.id)}}"><i class="fas fa-fw fa-trash-alt"></i></td>
+                                            
+                                        </tr>
+                                        {% endfor %}
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+       <script src="../static/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="../static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+<script src="../static/js/demo/datatables-demo.js"></script>
+  {% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<form action="" method="POST" enctype="multipart/form-data" class="center">
+<h2 class="w3-center">Add Tools</h2>
+        {{form.hidden_tag()}}               
+
+        <div class="form-group">
+                  {{form.student.label(class="form-control-label")}}
+                  {% if form.student.errors %}
+                  {{form.student(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.student.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.student(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+
+        <div class="form-group">
+                  {{form.employee.label(class="form-control-label")}}
+                  {% if form.employee.errors %}
+                  {{form.employee(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.employee.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.employee(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+
+        <div class="form-group">
+                  {{form.clas.label(class="form-control-label")}}
+                  {% if form.clas.errors %}
+                  {{form.clas(class="form-control form-control-lg is-invalid w3-border w3-round-xxlarge")}}
+                  <div class="invalid-feedback">
+                      {% for error in form.clas.errors %}
+                      <span>{{error}}</span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                  {{form.clas(class="form-control form-control-lg w3-border w3-round-xxlarge")}}
+                  {% endif %}
+              </div> 
+             
+           
+                
+      
+                  <div class="form-group">
+                      {{form.submit(class="w3-button w3-blue w3-border w3-round-xxlarge ")}}
+                  </div>
+     </form>
+{% endblock %}

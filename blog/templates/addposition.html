@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+
+<form action="" method="POST" enctype="multipart/form-data" class="center">
+<h2 class="w3-center">Add Position</h2>
+        {{form.hidden_tag()}}               
+      
+
+       <div class="form-group">
+                {{form.name.label(class="form-control-label")}}
+                {% if form.name.errors %}
+                {{form.name(class="form-control form-control-lg is-invalid w3-input w3-border w3-round-xxlarge")}}
+                <div class="invalid-feedback">
+                    {% for error in form.name.errors %}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{form.name(class="form-control form-control-lg w3-input w3-border w3-round-xxlarge ")}}
+                {% endif %}
+            </div> 
+      
+                  <div class="form-group">
+                      {{form.submit(class="w3-button w3-blue w3-border w3-round-xxlarge ")}}
+                  </div>
+     </form>
+  
+{% endblock %}
